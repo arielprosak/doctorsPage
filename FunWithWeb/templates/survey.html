@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body dir = 'ltr'>
+    <h1 dir = 'rtl'>דף מילוי מטופל</h1>
+{% for criterion in criteria %}
+
+    {% if criterion.type == "text" %}
+    <label for="{{criterion.name}}">{{criterion.name}}:</label> <input type="text" placeholder="{{criterion.name}}" id="{{criterion.name}}" name="{{criterion.name}}" required>
+    {% elif criterion.type == "date" %}
+    <label for="{{criterion.name}}">{{criterion.name}}:</label> <input type="date" id="{{criterion.name}}" name="{{criterion.name}}" placeholder="mm/dd/yyyy" required>
+    {% elif criterion.type == "options" %}
+    <p>
+    {% for i in range(criterion.optionsNumber) %}
+        {% var = [criterion]
+    <input type="radio" name="AppSource" value=i>{{criterion~{loop.index}}}
+    </p>
+    {% endfor %}
+    {% endif %}
+
+
+    {{ stuffs|join(", ") }}
+    <br>
+    <br>
+
+
+{% endfor %}
+</body>
+</html>
+

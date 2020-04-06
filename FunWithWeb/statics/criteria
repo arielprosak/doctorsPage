@@ -1,0 +1,6 @@
+id text
+phoneNumber phone
+medicalCondition text
+date date
+status options 4 "option a" "option b" "option c" "option d"
+condition text
